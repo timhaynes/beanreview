@@ -8,20 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		22D22C411DC6012C00980EAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C401DC6012C00980EAD /* AppDelegate.swift */; };
-		22D22C431DC6012C00980EAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C421DC6012C00980EAD /* ViewController.swift */; };
 		22D22C461DC6012C00980EAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D22C441DC6012C00980EAD /* Main.storyboard */; };
 		22D22C481DC6012C00980EAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D22C471DC6012C00980EAD /* Assets.xcassets */; };
 		22D22C4B1DC6012C00980EAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D22C491DC6012C00980EAD /* LaunchScreen.storyboard */; };
+		22D22C551DC6014100980EAD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D22C541DC6014100980EAD /* CloudKit.framework */; };
+		22D22C571DC6014E00980EAD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D22C561DC6014E00980EAD /* MapKit.framework */; };
+		22D22C591DC601C100980EAD /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C581DC601C100980EAD /* HomeTableViewController.swift */; };
+		22D22C5B1DC6041C00980EAD /* CafesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C5A1DC6041C00980EAD /* CafesTableViewController.swift */; };
+		22D22C5D1DC609BF00980EAD /* CafeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C5C1DC609BF00980EAD /* CafeDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		22D22C3D1DC6012C00980EAD /* BeanReview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeanReview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D22C401DC6012C00980EAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		22D22C421DC6012C00980EAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		22D22C451DC6012C00980EAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22D22C471DC6012C00980EAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22D22C4A1DC6012C00980EAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22D22C4C1DC6012C00980EAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22D22C521DC6013E00980EAD /* BeanReview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BeanReview.entitlements; sourceTree = "<group>"; };
+		22D22C541DC6014100980EAD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		22D22C561DC6014E00980EAD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		22D22C581DC601C100980EAD /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		22D22C5A1DC6041C00980EAD /* CafesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafesTableViewController.swift; sourceTree = "<group>"; };
+		22D22C5C1DC609BF00980EAD /* CafeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafeDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22D22C571DC6014E00980EAD /* MapKit.framework in Frameworks */,
+				22D22C551DC6014100980EAD /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +51,7 @@
 			children = (
 				22D22C3F1DC6012C00980EAD /* BeanReview */,
 				22D22C3E1DC6012C00980EAD /* Products */,
+				22D22C531DC6014100980EAD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +66,26 @@
 		22D22C3F1DC6012C00980EAD /* BeanReview */ = {
 			isa = PBXGroup;
 			children = (
+				22D22C521DC6013E00980EAD /* BeanReview.entitlements */,
 				22D22C401DC6012C00980EAD /* AppDelegate.swift */,
-				22D22C421DC6012C00980EAD /* ViewController.swift */,
 				22D22C441DC6012C00980EAD /* Main.storyboard */,
 				22D22C471DC6012C00980EAD /* Assets.xcassets */,
 				22D22C491DC6012C00980EAD /* LaunchScreen.storyboard */,
 				22D22C4C1DC6012C00980EAD /* Info.plist */,
+				22D22C581DC601C100980EAD /* HomeTableViewController.swift */,
+				22D22C5A1DC6041C00980EAD /* CafesTableViewController.swift */,
+				22D22C5C1DC609BF00980EAD /* CafeDetailViewController.swift */,
 			);
 			path = BeanReview;
+			sourceTree = "<group>";
+		};
+		22D22C531DC6014100980EAD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22D22C561DC6014E00980EAD /* MapKit.framework */,
+				22D22C541DC6014100980EAD /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +122,17 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = JU2PZ2EQ7S;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -137,7 +172,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22D22C431DC6012C00980EAD /* ViewController.swift in Sources */,
+				22D22C5B1DC6041C00980EAD /* CafesTableViewController.swift in Sources */,
+				22D22C591DC601C100980EAD /* HomeTableViewController.swift in Sources */,
+				22D22C5D1DC609BF00980EAD /* CafeDetailViewController.swift in Sources */,
 				22D22C411DC6012C00980EAD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BeanReview/BeanReview.entitlements;
 				DEVELOPMENT_TEAM = JU2PZ2EQ7S;
 				INFOPLIST_FILE = BeanReview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -272,6 +310,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BeanReview/BeanReview.entitlements;
 				DEVELOPMENT_TEAM = JU2PZ2EQ7S;
 				INFOPLIST_FILE = BeanReview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
