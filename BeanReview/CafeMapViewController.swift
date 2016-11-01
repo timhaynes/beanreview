@@ -20,7 +20,7 @@ class CafeMapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Bean Review - Map View"
-        mapView.delegate = self
+        mapView.delegate = self                 
         setupMap()
     }
 

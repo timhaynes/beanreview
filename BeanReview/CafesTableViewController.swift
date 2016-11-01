@@ -13,16 +13,22 @@ class CafesTableViewController: UITableViewController {
 
     var cafes: [CKRecord] = []
     
+    @IBOutlet var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        spinner.hidesWhenStopped = true
+        spinner.center = view.center
+        tableView.addSubview(spinner)
+        spinner.startAnimating()
+        
         fetchCafesFromCloud()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        refreshControl = UIRefreshControl()
+        refreshControl?.backgroundColor = UIColor.white
+        refreshControl?.tintColor = UIColor.gray
+        refreshControl?.addTarget(self, action: #selector(fetchCafesFromCloud), for: UIControlEvents.valueChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,13 +63,19 @@ class CafesTableViewController: UITableViewController {
                 return
             }
             
-            print("iCloud download successful")
-            self.tableView.reloadData()
+            print("CafesTableViewController - iCloud download successful")
+            OperationQueue.main.addOperation {
+                self.spinner.stopAnimating()
+                self.tableView.reloadData()
+                if let refreshControl = self.refreshControl {
+                    if refreshControl.isRefreshing {
+                        refreshControl.endRefreshing()
+                    }
+                }
+            }
         }
         
         publicDatabase.add(queryOperation)
-        
-    
         
     }
     
