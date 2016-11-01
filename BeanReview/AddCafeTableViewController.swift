@@ -1,18 +1,18 @@
 //
-//  HomeTableViewController.swift
+//  AddCafeTableViewController.swift
 //  BeanReview
 //
-//  Created by Tim Haynes on 30/10/16.
+//  Created by Tim Haynes on 1/11/16.
 //  Copyright © 2016 Agon Consulting. All rights reserved.
 //
 
 import UIKit
 
-class HomeTableViewController: UITableViewController {
+class AddCafeTableViewController: UITableViewController {
 
-    @IBAction func returnHome(segue: UIStoryboardSegue?) {
-        
-    }
+    @IBOutlet var cafeNameTextField: UITextField!
+    @IBOutlet var cafeAddressTextField: UITextField!
+    @IBOutlet var cafeHoursAddressTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

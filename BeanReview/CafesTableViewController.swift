@@ -15,6 +15,10 @@ class CafesTableViewController: UITableViewController {
     
     @IBOutlet var spinner: UIActivityIndicatorView!
     
+    @IBAction func unwindToCafes(segue: UIStoryboardSegue) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
