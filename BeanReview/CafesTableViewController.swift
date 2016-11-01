@@ -63,7 +63,10 @@ class CafesTableViewController: UITableViewController {
         
         publicDatabase.add(queryOperation)
         
+    
+        
     }
+    
 
     // MARK: - Table view data source
 
@@ -91,7 +94,9 @@ class CafesTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destination = segue.destination as! CafeDetailViewController
                 let cafe = cafes[indexPath.row]
+                
                 destination.cafeName = cafe.object(forKey: "name") as? String
+                destination.cafeRecord = cafe.recordID
             }
         }
     }

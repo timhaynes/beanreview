@@ -16,6 +16,8 @@
 		22D22C591DC601C100980EAD /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C581DC601C100980EAD /* HomeTableViewController.swift */; };
 		22D22C5B1DC6041C00980EAD /* CafesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C5A1DC6041C00980EAD /* CafesTableViewController.swift */; };
 		22D22C5D1DC609BF00980EAD /* CafeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C5C1DC609BF00980EAD /* CafeDetailViewController.swift */; };
+		22D22C5F1DC6C84400980EAD /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C5E1DC6C84400980EAD /* ReviewsViewController.swift */; };
+		22D22C611DC6CDF600980EAD /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C601DC6CDF600980EAD /* Cafe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		22D22C581DC601C100980EAD /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		22D22C5A1DC6041C00980EAD /* CafesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafesTableViewController.swift; sourceTree = "<group>"; };
 		22D22C5C1DC609BF00980EAD /* CafeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafeDetailViewController.swift; sourceTree = "<group>"; };
+		22D22C5E1DC6C84400980EAD /* ReviewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
+		22D22C601DC6CDF600980EAD /* Cafe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				22D22C581DC601C100980EAD /* HomeTableViewController.swift */,
 				22D22C5A1DC6041C00980EAD /* CafesTableViewController.swift */,
 				22D22C5C1DC609BF00980EAD /* CafeDetailViewController.swift */,
+				22D22C5E1DC6C84400980EAD /* ReviewsViewController.swift */,
+				22D22C601DC6CDF600980EAD /* Cafe.swift */,
 			);
 			path = BeanReview;
 			sourceTree = "<group>";
@@ -173,6 +179,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				22D22C5B1DC6041C00980EAD /* CafesTableViewController.swift in Sources */,
+				22D22C5F1DC6C84400980EAD /* ReviewsViewController.swift in Sources */,
+				22D22C611DC6CDF600980EAD /* Cafe.swift in Sources */,
 				22D22C591DC601C100980EAD /* HomeTableViewController.swift in Sources */,
 				22D22C5D1DC609BF00980EAD /* CafeDetailViewController.swift in Sources */,
 				22D22C411DC6012C00980EAD /* AppDelegate.swift in Sources */,
