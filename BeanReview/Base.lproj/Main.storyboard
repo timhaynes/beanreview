@@ -124,7 +124,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xEy-o1-6we">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="xEy-o1-6we">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xEy-o1-6we" id="eH9-Up-qA9">
@@ -205,7 +205,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5p-rj-WQ4">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5p-rj-WQ4">
                                 <rect key="frame" x="0.0" y="64" width="375" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="DJM-P6-Vte"/>
@@ -221,11 +221,50 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="I5p-rj-WQ4" id="of1-B2-6Gh"/>
+                        <segue destination="zmf-EJ-yQi" kind="show" identifier="showMap" id="ewJ-ci-vR8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeB-NK-I39" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2698.4000000000001" y="965.6671664167917"/>
+            <point key="canvasLocation" x="2713" y="967"/>
+        </scene>
+        <!--Cafe Map View Controller-->
+        <scene sceneID="X7p-ZV-1n4">
+            <objects>
+                <viewController id="zmf-EJ-yQi" customClass="CafeMapViewController" customModule="BeanReview" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8aF-fl-te0"/>
+                        <viewControllerLayoutGuide type="bottom" id="aa4-WA-hSq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z1w-FG-90X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1bm-ox-0b9">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="xky-uN-Mfm"/>
+                                </constraints>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1bm-ox-0b9" firstAttribute="top" secondItem="8aF-fl-te0" secondAttribute="bottom" id="9i5-fh-iTM"/>
+                            <constraint firstItem="aa4-WA-hSq" firstAttribute="top" secondItem="1bm-ox-0b9" secondAttribute="bottom" id="D8F-FL-195"/>
+                            <constraint firstItem="1bm-ox-0b9" firstAttribute="leading" secondItem="z1w-FG-90X" secondAttribute="leading" id="JDp-CF-W1M"/>
+                            <constraint firstItem="1bm-ox-0b9" firstAttribute="bottom" secondItem="aa4-WA-hSq" secondAttribute="top" id="QSM-db-Wc0"/>
+                            <constraint firstItem="1bm-ox-0b9" firstAttribute="top" secondItem="8aF-fl-te0" secondAttribute="bottom" id="ZNX-9f-aTC"/>
+                            <constraint firstAttribute="trailing" secondItem="1bm-ox-0b9" secondAttribute="trailing" id="aGJ-6T-cjY"/>
+                            <constraint firstItem="1bm-ox-0b9" firstAttribute="leading" secondItem="z1w-FG-90X" secondAttribute="leading" id="c7L-XX-Avn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="1bm-ox-0b9" id="Cp2-Ax-anM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0dl-93-SHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3525.5999999999999" y="966.56671664167925"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6be-SR-sZq">

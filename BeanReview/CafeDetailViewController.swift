@@ -13,6 +13,7 @@ import MapKit
 class CafeDetailViewController: UIViewController {
     
     var cafe: CKRecord?
+    var cafePlacemark: CLPlacemark?
     var cafeRecord: CKRecordID!
     var cafeName: String!
     
@@ -22,6 +23,9 @@ class CafeDetailViewController: UIViewController {
         super.viewDidLoad()
         downloadRecord()
         self.title = cafeName
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showMap))
+        mapView.addGestureRecognizer(gestureRecognizer)
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +46,6 @@ class CafeDetailViewController: UIViewController {
             
             self.cafe = records?[self.cafeRecord]
             print("CafeDetailViewController  -  Successful download of record")
-            print("\(self.cafe?.allTokens())")
             self.setMap(cafe: self.cafe!)
             
         }
@@ -61,6 +64,7 @@ class CafeDetailViewController: UIViewController {
             
             if let placemarks = placemarks {
                 let placemark = placemarks[0]
+                self.cafePlacemark = placemarks[0]
                 let annotation = MKPointAnnotation()
                 
                 if let location = placemark.location {
@@ -73,6 +77,18 @@ class CafeDetailViewController: UIViewController {
             }
         })
         
+    }
+    
+    func showMap() {
+        performSegue(withIdentifier: "showMap", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMap" {
+            let destinationController = segue.destination as! CafeMapViewController
+            destinationController.cafe = cafe
+            destinationController.cafePlacemark = cafePlacemark
+        }
     }
     
 
