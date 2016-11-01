@@ -277,7 +277,11 @@
                                 <segue destination="ltp-wa-xRp" kind="unwind" unwindAction="unwindToCafesWithSegue:" id="p69-9v-CaX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XSm-bh-z8v"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="XSm-bh-z8v">
+                            <connections>
+                                <action selector="clickDone" destination="OsP-gZ-rtP" id="vdg-rR-OC6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cafeAddressTextField" destination="KsP-Bb-9Sj" id="aDh-Pm-Zus"/>

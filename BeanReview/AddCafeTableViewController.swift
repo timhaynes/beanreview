@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class AddCafeTableViewController: UITableViewController {
 
@@ -14,14 +15,47 @@ class AddCafeTableViewController: UITableViewController {
     @IBOutlet var cafeAddressTextField: UITextField!
     @IBOutlet var cafeHoursAddressTextField: UITextField!
     
+    @IBAction func clickDone() {
+        saveToCloud()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    // MARK: - Save
+    
+    func saveToCloud() {
+        if validateInput() {
+            let record = CKRecord(recordType: "Cafe")
+            record.setValue(cafeNameTextField.text, forKey: "name")
+            record.setValue(cafeAddressTextField.text, forKey: "address")
+            record.setValue(cafeHoursAddressTextField.text, forKey: "hours")
+            
+            let publicDatabase = CKContainer.default().publicCloudDatabase
+            publicDatabase.save(record, completionHandler: { (record, error) -> Void in
+                if error != nil {
+                    print("Error saving cafe record to cloud: \(error?.localizedDescription)")
+                } else {
+                    print("Cafe record saved to iCloud")
+                    self.dismiss(animated: true, completion: nil)
+                    // TODO - send to actual detail view of newly created cafe
+                }
+            })
+        }
+    }
+    
+    func validateInput() -> Bool {
+        if cafeNameTextField.text! == "" || cafeHoursAddressTextField.text! == "" || cafeAddressTextField.text! == "" {
+            let alert = UIAlertController(title: "Error", message: "Please complete all fields", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(alertAction)
+            present(alert, animated: true)
+            print("AddCafeTableViewController - validation failed")
+            return false
+        } else {
+            return true
+        }
     }
 
     override func didReceiveMemoryWarning() {
