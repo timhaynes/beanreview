@@ -18,6 +18,7 @@
 		22D22C5D1DC609BF00980EAD /* CafeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C5C1DC609BF00980EAD /* CafeDetailViewController.swift */; };
 		22D22C631DC81E8500980EAD /* CafeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C621DC81E8500980EAD /* CafeMapViewController.swift */; };
 		22D22C671DC85E2D00980EAD /* AddCafeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C661DC85E2D00980EAD /* AddCafeTableViewController.swift */; };
+		22D22C6B1DC9D41700980EAD /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C6A1DC9D41700980EAD /* AddReviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		22D22C5C1DC609BF00980EAD /* CafeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafeDetailViewController.swift; sourceTree = "<group>"; };
 		22D22C621DC81E8500980EAD /* CafeMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafeMapViewController.swift; sourceTree = "<group>"; };
 		22D22C661DC85E2D00980EAD /* AddCafeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCafeTableViewController.swift; sourceTree = "<group>"; };
+		22D22C6A1DC9D41700980EAD /* AddReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				22D22C5C1DC609BF00980EAD /* CafeDetailViewController.swift */,
 				22D22C621DC81E8500980EAD /* CafeMapViewController.swift */,
 				22D22C661DC85E2D00980EAD /* AddCafeTableViewController.swift */,
+				22D22C6A1DC9D41700980EAD /* AddReviewViewController.swift */,
 			);
 			path = BeanReview;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				22D22C5D1DC609BF00980EAD /* CafeDetailViewController.swift in Sources */,
 				22D22C631DC81E8500980EAD /* CafeMapViewController.swift in Sources */,
 				22D22C411DC6012C00980EAD /* AppDelegate.swift in Sources */,
+				22D22C6B1DC9D41700980EAD /* AddReviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +311,7 @@
 				CODE_SIGN_ENTITLEMENTS = BeanReview/BeanReview.entitlements;
 				DEVELOPMENT_TEAM = JU2PZ2EQ7S;
 				INFOPLIST_FILE = BeanReview/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.au.agonconsulting.BeanReview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -321,6 +326,7 @@
 				CODE_SIGN_ENTITLEMENTS = BeanReview/BeanReview.entitlements;
 				DEVELOPMENT_TEAM = JU2PZ2EQ7S;
 				INFOPLIST_FILE = BeanReview/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.au.agonconsulting.BeanReview;
 				PRODUCT_NAME = "$(TARGET_NAME)";

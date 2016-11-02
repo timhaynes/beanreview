@@ -41,6 +41,9 @@
                                                 <constraint firstItem="7rw-oY-e5A" firstAttribute="centerY" secondItem="vU1-tH-djA" secondAttribute="centerY" id="Vwu-QR-7Vz"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="4Kz-zd-Oae" kind="presentation" identifier="toNewReview" id="Tly-Po-6RA"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Cjm-Vb-AeV">
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -49,8 +52,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bj2-zf-LcH">
-                                                    <rect key="frame" x="10" y="11.5" width="63" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bj2-zf-LcH">
+                                                    <rect key="frame" x="10" y="11.5" width="48" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -292,7 +295,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRo-gi-aic" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ltp-wa-xRp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4464.8000000000002" y="-63.418290854572717"/>
+            <point key="canvasLocation" x="5404" y="-63.418290854572717"/>
         </scene>
         <!--Cafe Detail View Controller-->
         <scene sceneID="dwp-bG-V67">
@@ -403,6 +406,69 @@
             </objects>
             <point key="canvasLocation" x="1856.8" y="629.2353823088456"/>
         </scene>
+        <!--New review-->
+        <scene sceneID="fPX-e5-Rhu">
+            <objects>
+                <viewController id="uC3-BW-jmD" customClass="AddReviewViewController" customModule="BeanReview" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="380-am-myN"/>
+                        <viewControllerLayoutGuide type="bottom" id="B02-NO-1Gi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ft5-Gr-1JG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iyS-De-ZZJ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQa-Pp-Y8x">
+                                <rect key="frame" x="0.0" y="172" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tow-L7-VdY">
+                                <rect key="frame" x="0.0" y="280" width="375" height="75"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2CS-iN-t6u">
+                                <rect key="frame" x="16" y="363" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fnr-G5-Qok">
+                                <rect key="frame" x="16" y="401" width="343" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New review" id="WwV-6S-3ys">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="17r-7G-9GQ">
+                            <connections>
+                                <segue destination="Xtv-JU-8Ab" kind="unwind" unwindAction="returnHomeWithSegue:" id="DiF-JT-gBi"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9gM-KX-v2c"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="beanPicker" destination="iyS-De-ZZJ" id="KhA-W5-tME"/>
+                        <outlet property="cafePicker" destination="gQa-Pp-Y8x" id="eK0-jq-5uZ"/>
+                        <outlet property="contentTextView" destination="Fnr-G5-Qok" id="GYp-Zy-I1K"/>
+                        <outlet property="ratingPicker" destination="Tow-L7-VdY" id="7zj-Jg-bFZ"/>
+                        <outlet property="titleField" destination="2CS-iN-t6u" id="Qho-b7-Dwt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="njH-i0-zTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Xtv-JU-8Ab" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2692" y="-677.81109445277366"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="eNZ-1t-qZj">
             <objects>
@@ -419,7 +485,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DiS-lT-0of" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3652" y="-63"/>
+            <point key="canvasLocation" x="4591.1999999999998" y="-63.418290854572717"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yKC-Jg-8ZI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Kz-zd-Oae" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ysb-sn-HmH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uC3-BW-jmD" kind="relationship" relationship="rootViewController" id="Ubs-3y-ygU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cb6-RQ-RZK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1826" y="-677"/>
         </scene>
     </scenes>
 </document>
