@@ -42,7 +42,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="4Kz-zd-Oae" kind="presentation" identifier="toNewReview" id="Tly-Po-6RA"/>
+                                            <segue destination="mAl-Kq-cP6" kind="presentation" identifier="toNewRevie" id="G4l-mO-1fU"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Cjm-Vb-AeV">
@@ -295,7 +295,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRo-gi-aic" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ltp-wa-xRp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5404" y="-63.418290854572717"/>
+            <point key="canvasLocation" x="7282.3999999999996" y="-63.418290854572717"/>
         </scene>
         <!--Cafe Detail View Controller-->
         <scene sceneID="dwp-bG-V67">
@@ -406,7 +406,7 @@
             </objects>
             <point key="canvasLocation" x="1856.8" y="629.2353823088456"/>
         </scene>
-        <!--New review-->
+        <!--Select bean-->
         <scene sceneID="fPX-e5-Rhu">
             <objects>
                 <viewController id="uC3-BW-jmD" customClass="AddReviewViewController" customModule="BeanReview" customModuleProvider="target" sceneMemberID="viewController">
@@ -418,59 +418,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iyS-De-ZZJ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="100"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQa-Pp-Y8x">
+                                <rect key="frame" x="27.5" y="227.5" width="320" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="7p7-zJ-yTm"/>
+                                </constraints>
                             </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQa-Pp-Y8x">
-                                <rect key="frame" x="0.0" y="172" width="375" height="100"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tow-L7-VdY">
+                                <rect key="frame" x="27.5" y="381.5" width="320" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="cFf-bt-1li"/>
+                                </constraints>
                             </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tow-L7-VdY">
-                                <rect key="frame" x="0.0" y="280" width="375" height="75"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title of review" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2CS-iN-t6u">
-                                <rect key="frame" x="16" y="363" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBm-rO-BRU">
+                                <rect key="frame" x="100.5" y="30" width="174.5" height="33.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Your review" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fnr-G5-Qok">
-                                <rect key="frame" x="16" y="401" width="343" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyS-De-ZZJ">
+                                <rect key="frame" x="27" y="73.5" width="320" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="w6x-3e-idL"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select grower" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWi-jj-Hb2">
+                                <rect key="frame" x="104" y="183.5" width="167" height="34"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select bean" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usd-UU-6Fo">
+                                <rect key="frame" x="116" y="337.5" width="143.5" height="34"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UWi-jj-Hb2" firstAttribute="centerX" secondItem="Ft5-Gr-1JG" secondAttribute="centerX" id="3C5-FC-308"/>
+                            <constraint firstItem="gQa-Pp-Y8x" firstAttribute="centerX" secondItem="Ft5-Gr-1JG" secondAttribute="centerX" id="6bd-7a-19c"/>
+                            <constraint firstItem="Tow-L7-VdY" firstAttribute="top" secondItem="usd-UU-6Fo" secondAttribute="bottom" constant="10" id="6lj-yG-njz"/>
+                            <constraint firstItem="UWi-jj-Hb2" firstAttribute="top" secondItem="iyS-De-ZZJ" secondAttribute="bottom" constant="10" id="7yi-nY-b2m"/>
+                            <constraint firstItem="iyS-De-ZZJ" firstAttribute="centerX" secondItem="Ft5-Gr-1JG" secondAttribute="centerX" id="B9W-GG-xhz"/>
+                            <constraint firstItem="usd-UU-6Fo" firstAttribute="centerX" secondItem="Ft5-Gr-1JG" secondAttribute="centerX" id="QY0-EV-2M2"/>
+                            <constraint firstItem="usd-UU-6Fo" firstAttribute="top" secondItem="gQa-Pp-Y8x" secondAttribute="bottom" constant="10" id="Xgh-aU-bad"/>
+                            <constraint firstItem="vBm-rO-BRU" firstAttribute="centerX" secondItem="Ft5-Gr-1JG" secondAttribute="centerX" id="cfE-DP-Qjw"/>
+                            <constraint firstItem="vBm-rO-BRU" firstAttribute="top" secondItem="380-am-myN" secondAttribute="bottom" constant="10" id="dik-Op-dH9"/>
+                            <constraint firstItem="Tow-L7-VdY" firstAttribute="centerX" secondItem="Ft5-Gr-1JG" secondAttribute="centerX" id="e54-pR-TIH"/>
+                            <constraint firstItem="gQa-Pp-Y8x" firstAttribute="top" secondItem="UWi-jj-Hb2" secondAttribute="bottom" constant="10" id="goe-la-wwN"/>
+                            <constraint firstItem="iyS-De-ZZJ" firstAttribute="top" secondItem="vBm-rO-BRU" secondAttribute="bottom" constant="10" id="iPT-e2-hFv"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New review" id="WwV-6S-3ys">
+                    <navigationItem key="navigationItem" title="Select bean" id="WwV-6S-3ys">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="17r-7G-9GQ">
                             <connections>
                                 <segue destination="Xtv-JU-8Ab" kind="unwind" unwindAction="returnHomeWithSegue:" id="DiF-JT-gBi"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9gM-KX-v2c">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="9gM-KX-v2c">
                             <connections>
                                 <action selector="saveClicked" destination="uC3-BW-jmD" id="t7g-uA-dFO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="beanPicker" destination="iyS-De-ZZJ" id="KhA-W5-tME"/>
-                        <outlet property="cafePicker" destination="gQa-Pp-Y8x" id="eK0-jq-5uZ"/>
-                        <outlet property="contentTextView" destination="Fnr-G5-Qok" id="GYp-Zy-I1K"/>
-                        <outlet property="ratingPicker" destination="Tow-L7-VdY" id="7zj-Jg-bFZ"/>
-                        <outlet property="titleField" destination="2CS-iN-t6u" id="Qho-b7-Dwt"/>
+                        <outlet property="beanPicker" destination="Tow-L7-VdY" id="ggb-bD-j6H"/>
+                        <outlet property="countryPicker" destination="iyS-De-ZZJ" id="4F1-P5-ceh"/>
+                        <outlet property="growerPicker" destination="gQa-Pp-Y8x" id="Me2-PW-LRc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="njH-i0-zTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Xtv-JU-8Ab" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2692" y="-677.81109445277366"/>
+            <point key="canvasLocation" x="3494" y="-1316"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eNZ-1t-qZj">
@@ -488,25 +510,70 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DiS-lT-0of" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4591.1999999999998" y="-63.418290854572717"/>
+            <point key="canvasLocation" x="6469.6000000000004" y="-63.418290854572717"/>
+        </scene>
+        <!--Search beans-->
+        <scene sceneID="yGu-LU-ikN">
+            <objects>
+                <tableViewController id="Epd-la-cPk" customClass="AddReviewSearchViewController" customModule="BeanReview" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oZb-mE-xpL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="rGB-tf-ASi" detailTextLabel="hBu-C5-rX8" style="IBUITableViewCellStyleSubtitle" id="Xxj-FE-LfD">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xxj-FE-LfD" id="FwI-ee-nIq">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rGB-tf-ASi">
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hBu-C5-rX8">
+                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Epd-la-cPk" id="g4J-qr-FMX"/>
+                            <outlet property="delegate" destination="Epd-la-cPk" id="nsP-Qh-NAJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Search beans" id="OdP-RN-qZm"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZI1-bs-ACJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4328.8000000000002" y="-265.81709145427288"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="yKC-Jg-8ZI">
+        <scene sceneID="8qX-e3-IGf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Kz-zd-Oae" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mAl-Kq-cP6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ysb-sn-HmH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mJb-IW-YSL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="uC3-BW-jmD" kind="relationship" relationship="rootViewController" id="Ubs-3y-ygU"/>
+                        <segue destination="Epd-la-cPk" kind="relationship" relationship="rootViewController" id="rSR-oi-6Pg"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cb6-RQ-RZK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b3Y-GM-3GN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1826" y="-677"/>
+            <point key="canvasLocation" x="3389.5999999999999" y="-265.81709145427288"/>
         </scene>
     </scenes>
 </document>

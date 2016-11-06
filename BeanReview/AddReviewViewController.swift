@@ -22,22 +22,19 @@ class AddReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     @IBOutlet var beanPicker: UIPickerView!
-    @IBOutlet var cafePicker: UIPickerView!
-    @IBOutlet var ratingPicker: UIPickerView!
-    @IBOutlet var titleField: UITextField!
-    @IBOutlet var contentTextView: UITextView!
-    
+    @IBOutlet var growerPicker: UIPickerView!
+    @IBOutlet var countryPicker: UIPickerView!
+
     var beanPickerData: [String] = [String]()
-    var cafePickerData: [String] = [String]()
-    var ratingPickerData: [String] = [String]()
+    var growerPickerData: [String] = [String]()
+    var countryPickerData: [String] = [String]()
     
     var beanSelection = ""
-    var cafeSelection = ""
-    var ratingSelection = ""
+    var growerSelection = ""
+    var countrySelection = ""
     
-    var beanObjects: [CKRecord] = [CKRecord]()
-    var beansDic: [String: CKRecord] = [:]
-    // the string key in beansDic is the title used in beanPicker, dic is setup during download
+    var countryGrowerDic: [String: String] = [:]
+    var growerBeanDic: [String: String] = [:]
     
     
     override func viewDidLoad() {
@@ -45,16 +42,14 @@ class AddReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerV
 
         beanPicker.delegate = self
         beanPicker.dataSource = self
-        cafePicker.delegate = self
-        cafePicker.dataSource = self
-        ratingPicker.delegate = self
-        ratingPicker.dataSource = self
+        growerPicker.delegate = self
+        growerPicker.dataSource = self
+        countryPicker.delegate = self
+        countryPicker.dataSource = self
         
-        
-        // set arrays to 'Loading' and then remove and populate with real data from cloud
-        beanPickerData = ["Loading...."]
-        cafePickerData = ["Select cafe", "Cafe 3", "Cafe 5", "Cafe 11"]
-        ratingPickerData = ["Rating out of 5", "1", "2", "3", "4", "5"]
+        beanPickerData = ["Select grower first"]
+        growerPickerData = ["Select country first"]
+        countryPickerData = ["Loading...."]
         
         fetchBeans()
         
@@ -76,15 +71,14 @@ class AddReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         queryOperation.desiredKeys = ["name", "producer", "country"]
         queryOperation.queuePriority = .veryHigh
         queryOperation.resultsLimit = 1000
+        countryPickerData.removeAll()
         queryOperation.recordFetchedBlock = { (record) -> Void in
-            self.beanPickerData.removeAll()
             let name = record.object(forKey: "name") as! String
             let producer = record.object(forKey: "producer") as! String
             let country = record.object(forKey: "country") as! String
-            let nameForPicker = name + " " + producer + " " + country
-            self.beanPickerData.append(nameForPicker)
-            self.beanObjects.append(record)
-            self.beansDic[nameForPicker] = record
+            self.countryPickerData.append(country)
+            self.countryGrowerDic[country] = producer
+            self.growerBeanDic[producer] = name
         }
         
         queryOperation.queryCompletionBlock = { (cursor, error) -> Void in
@@ -95,8 +89,9 @@ class AddReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             }
             
             print("AddReviewViewController - beans iCloud download successful")
+
             OperationQueue.main.addOperation {
-                self.beanPicker.reloadAllComponents()
+                self.countryPicker.reloadAllComponents()
             }
             
         }
@@ -107,11 +102,8 @@ class AddReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func sendToCloud() {
         print("Bean is \(beanSelection)")
-        print("Cafe is \(cafeSelection)")
-        print("Rating is \(ratingSelection)")
-        print("Title of review is \(titleField.text)")
-        print("Content of review is \(contentTextView.text)")
-        print("\(beansDic)")
+        print("Grower is \(growerSelection)")
+        print("Country is \(countrySelection)")
     }
     
     
@@ -121,11 +113,32 @@ class AddReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         switch picker {
         case beanPicker:
             beanSelection = beanPickerData[row]
-            print("\(beanSelection)")
-        case cafePicker:
-            cafeSelection = cafePickerData[row]
-        case ratingPicker:
-            ratingSelection = ratingPickerData[row]
+            
+        case growerPicker:
+            growerSelection = growerPickerData[row]
+            var beans: [String] = [String]()
+            for (grower, bean) in growerBeanDic {
+                if grower == growerSelection {
+                    beans.append(bean)
+                }
+            }
+            beanPickerData.removeAll()
+            beanPickerData = beans
+            beanPicker.reloadAllComponents()
+            // make bean picker view update
+            
+        case countryPicker:
+            countrySelection = countryPickerData[row]
+            var growers: [String] = [String]()
+            for (country, grower) in countryGrowerDic {
+                if country == countrySelection {
+                    growers.append(grower)
+                }
+            }
+            growerPickerData.removeAll()
+            growerPickerData = growers
+            growerPicker.reloadAllComponents()
+            
         default:
             break
         }
@@ -141,10 +154,10 @@ class AddReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         switch pickerView {
         case beanPicker:
             return beanPickerData[row]
-        case cafePicker:
-            return cafePickerData[row]
-        case ratingPicker:
-            return ratingPickerData[row]
+        case growerPicker:
+            return growerPickerData[row]
+        case countryPicker:
+            return countryPickerData[row]
         default:
             return ""
         }
@@ -154,10 +167,10 @@ class AddReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         switch pickerView {
         case beanPicker:
             return beanPickerData.count
-        case cafePicker:
-            return cafePickerData.count
-        case ratingPicker:
-            return ratingPickerData.count
+        case growerPicker:
+            return growerPickerData.count
+        case countryPicker:
+            return countryPickerData.count
         default:
             return 1
         }
@@ -167,9 +180,9 @@ class AddReviewViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         switch pickerView {
         case beanPicker:
             return 1
-        case cafePicker:
+        case growerPicker:
             return 1
-        case ratingPicker:
+        case countryPicker:
             return 1
         default:
             return 1
