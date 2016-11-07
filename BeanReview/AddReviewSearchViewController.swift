@@ -11,15 +11,28 @@
 import UIKit
 import CloudKit
 
-class AddReviewSearchViewController: UITableViewController {
+class AddReviewSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var beanRecords = [CKRecord]()
     var filteredBeanRecords = [CKRecord]()
     let searchController = UISearchController(searchResultsController: nil)
     var downloaded: Bool = false
     
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var spinner: UIActivityIndicatorView!
+    @IBAction func beanNotHereClicked() {
+        print("button clicked")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        spinner.hidesWhenStopped = true
+        spinner.center = view.center
+        //spinner.activityIndicatorViewStyle = .whiteLarge
+        tableView.addSubview(spinner)
+        spinner.startAnimating()
+        
         
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -36,11 +49,11 @@ class AddReviewSearchViewController: UITableViewController {
     }
     
     // MARK: - Table View
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if downloaded {
             if searchController.isActive && searchController.searchBar.text != "" {
                 return filteredBeanRecords.count
@@ -53,7 +66,7 @@ class AddReviewSearchViewController: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         if downloaded {
@@ -74,12 +87,12 @@ class AddReviewSearchViewController: UITableViewController {
         
     }
     
+    
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         filteredBeanRecords = beanRecords.filter { bean in
-            return ((bean.object(forKey: "name") as? String)?.lowercased().contains(searchText.lowercased()))!
+            return ((bean.object(forKey: "name") as? String)?.lowercased().contains(searchText.lowercased()))! || ((bean.object(forKey: "producer") as? String)?.lowercased().contains(searchText.lowercased()))! || ((bean.object(forKey: "country") as? String)?.lowercased().contains(searchText.lowercased()))!
         }
         tableView.reloadData()
-        
     }
     
     func fetchBeans() {
@@ -114,6 +127,7 @@ class AddReviewSearchViewController: UITableViewController {
             
             OperationQueue.main.addOperation {
                 self.downloaded = true
+                self.spinner.stopAnimating()
                 self.tableView.reloadData()
             }
         }

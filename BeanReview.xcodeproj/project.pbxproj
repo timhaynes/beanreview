@@ -19,7 +19,6 @@
 		22D22C5D1DC609BF00980EAD /* CafeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C5C1DC609BF00980EAD /* CafeDetailViewController.swift */; };
 		22D22C631DC81E8500980EAD /* CafeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C621DC81E8500980EAD /* CafeMapViewController.swift */; };
 		22D22C671DC85E2D00980EAD /* AddCafeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C661DC85E2D00980EAD /* AddCafeTableViewController.swift */; };
-		22D22C6B1DC9D41700980EAD /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C6A1DC9D41700980EAD /* AddReviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +37,6 @@
 		22D22C5C1DC609BF00980EAD /* CafeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafeDetailViewController.swift; sourceTree = "<group>"; };
 		22D22C621DC81E8500980EAD /* CafeMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CafeMapViewController.swift; sourceTree = "<group>"; };
 		22D22C661DC85E2D00980EAD /* AddCafeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCafeTableViewController.swift; sourceTree = "<group>"; };
-		22D22C6A1DC9D41700980EAD /* AddReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +83,6 @@
 				22D22C5C1DC609BF00980EAD /* CafeDetailViewController.swift */,
 				22D22C621DC81E8500980EAD /* CafeMapViewController.swift */,
 				22D22C661DC85E2D00980EAD /* AddCafeTableViewController.swift */,
-				22D22C6A1DC9D41700980EAD /* AddReviewViewController.swift */,
 				228030D01DCDB74C00408B74 /* AddReviewSearchViewController.swift */,
 			);
 			path = BeanReview;
@@ -191,7 +188,6 @@
 				22D22C631DC81E8500980EAD /* CafeMapViewController.swift in Sources */,
 				22D22C411DC6012C00980EAD /* AppDelegate.swift in Sources */,
 				228030D11DCDB74C00408B74 /* AddReviewSearchViewController.swift in Sources */,
-				22D22C6B1DC9D41700980EAD /* AddReviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
