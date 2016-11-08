@@ -6,7 +6,7 @@
 //  Copyright © 2016 Agon Consulting. All rights reserved.
 //
 
-// TODO - implement cache
+// TODO - 1. implement cache  
 
 import UIKit
 import CloudKit
@@ -20,19 +20,19 @@ class AddReviewSearchViewController: UIViewController, UITableViewDelegate, UITa
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var spinner: UIActivityIndicatorView!
+    
     @IBAction func beanNotHereClicked() {
         print("button clicked")
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         spinner.hidesWhenStopped = true
         spinner.center = view.center
-        //spinner.activityIndicatorViewStyle = .whiteLarge
         tableView.addSubview(spinner)
         spinner.startAnimating()
-        
         
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
@@ -119,7 +119,10 @@ class AddReviewSearchViewController: UIViewController, UITableViewDelegate, UITa
         queryOperation.queryCompletionBlock = { (cursor, error) -> Void in
             if error != nil {
                 print("iCloud download error for beans - \(error?.localizedDescription)")
-                // Send download error alert
+                let alert = UIAlertController(title: "Error", message: "Could not download beans from iCloud, check your connection", preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true)
                 return
             }
             
@@ -133,6 +136,21 @@ class AddReviewSearchViewController: UIViewController, UITableViewDelegate, UITa
         }
         
         publicDatabase.add(queryOperation)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "beanSelectedForReview" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destinaton = segue.destination as! SelectCafeForBeanReviewViewController
+                var bean: CKRecord?
+                if !searchController.isActive && searchController.searchBar.text == "" {
+                    bean = beanRecords[indexPath.row]
+                } else {
+                    bean = filteredBeanRecords[indexPath.row]
+                }
+                destinaton.bean = bean
+            }
+        }
     }
     
 }
