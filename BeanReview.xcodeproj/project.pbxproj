@@ -10,6 +10,7 @@
 		228030D11DCDB74C00408B74 /* AddReviewSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228030D01DCDB74C00408B74 /* AddReviewSearchViewController.swift */; };
 		2282F23B1DD0790600E0B4BC /* SelectCafeForBeanReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282F23A1DD0790600E0B4BC /* SelectCafeForBeanReviewViewController.swift */; };
 		2282F23D1DD1D9A300E0B4BC /* WriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282F23C1DD1D9A300E0B4BC /* WriteReviewViewController.swift */; };
+		2282F23F1DD4890000E0B4BC /* BeansTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2282F23E1DD4890000E0B4BC /* BeansTableViewController.swift */; };
 		22D22C411DC6012C00980EAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D22C401DC6012C00980EAD /* AppDelegate.swift */; };
 		22D22C461DC6012C00980EAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D22C441DC6012C00980EAD /* Main.storyboard */; };
 		22D22C481DC6012C00980EAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D22C471DC6012C00980EAD /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		228030D01DCDB74C00408B74 /* AddReviewSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReviewSearchViewController.swift; sourceTree = "<group>"; };
 		2282F23A1DD0790600E0B4BC /* SelectCafeForBeanReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCafeForBeanReviewViewController.swift; sourceTree = "<group>"; };
 		2282F23C1DD1D9A300E0B4BC /* WriteReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteReviewViewController.swift; sourceTree = "<group>"; };
+		2282F23E1DD4890000E0B4BC /* BeansTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeansTableViewController.swift; sourceTree = "<group>"; };
 		22D22C3D1DC6012C00980EAD /* BeanReview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeanReview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D22C401DC6012C00980EAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22D22C451DC6012C00980EAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				228030D01DCDB74C00408B74 /* AddReviewSearchViewController.swift */,
 				2282F23A1DD0790600E0B4BC /* SelectCafeForBeanReviewViewController.swift */,
 				2282F23C1DD1D9A300E0B4BC /* WriteReviewViewController.swift */,
+				2282F23E1DD4890000E0B4BC /* BeansTableViewController.swift */,
 			);
 			path = BeanReview;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				22D22C5D1DC609BF00980EAD /* CafeDetailViewController.swift in Sources */,
 				2282F23D1DD1D9A300E0B4BC /* WriteReviewViewController.swift in Sources */,
 				22D22C631DC81E8500980EAD /* CafeMapViewController.swift in Sources */,
+				2282F23F1DD4890000E0B4BC /* BeansTableViewController.swift in Sources */,
 				22D22C411DC6012C00980EAD /* AppDelegate.swift in Sources */,
 				228030D11DCDB74C00408B74 /* AddReviewSearchViewController.swift in Sources */,
 			);
