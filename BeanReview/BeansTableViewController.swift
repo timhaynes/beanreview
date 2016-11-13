@@ -102,7 +102,7 @@ class BeansTableViewController: UITableViewController {
         queryOperation.resultsLimit = 1000
         
         queryOperation.recordFetchedBlock = { (record) -> Void in
-            
+            print("bean record ID - \(record.recordID)")
             if !self.beanRecords.contains(record) {
                 self.beanRecords.append(record)
             }
@@ -129,6 +129,26 @@ class BeansTableViewController: UITableViewController {
         
         publicDatabase.add(queryOperation)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toBeanDetailView" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destination = segue.destination as! BeanDetailViewController
+                var bean: CKRecord
+                
+                if downloaded {
+                    if searchController.isActive && searchController.searchBar.text != "" {
+                        bean = filteredBeanRecords[indexPath.row]
+                    } else {
+                        bean = beanRecords[indexPath.row]
+                    }
+                } else {
+                    return
+                }
+                destination.bean = bean
+            }
+        }
     }
     
 
