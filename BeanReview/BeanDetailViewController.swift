@@ -42,6 +42,8 @@ class BeanDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - iCloud download
+    
     func fetchReviews() {
         let cloudContainer = CKContainer.default()
         let publicDatabase = cloudContainer.publicCloudDatabase
@@ -68,9 +70,7 @@ class BeanDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             for review in self.reviews {
                 let reference = review.object(forKey: "bean") as! CKReference
                 if reference.recordID.recordName == self.bean.recordID.recordName {
-                    if !self.relevantReviews.contains(review) {
-                        self.relevantReviews.append(review)
-                    }
+                    self.relevantReviews.append(review)
                 }
             }
             
@@ -85,6 +85,19 @@ class BeanDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
+    // MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toReviewView" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destination = segue.destination as! ReviewViewController
+                destination.review = relevantReviews[indexPath.row]
+            }
+        }
+    }
+    
+    // MARK: - Average rating calculation
+    
     func calculateAverage() -> String {
         var ratings = [Double]()
         for review in relevantReviews {
@@ -92,7 +105,11 @@ class BeanDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         let roundedRating = average(numbers: ratings).roundTo(places: 1)
-        return String(roundedRating)
+        if roundedRating > 0.00 {
+            return String(roundedRating)
+        } else {
+            return "N/A"
+        }
     }
     
     func average(numbers: [Double]) -> Double {
@@ -109,12 +126,22 @@ class BeanDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: - Table view setup
     
+    // Only allow selection if reviews have been downloaded, filtered, and one does exist
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if reviewsFiltered && relevantReviews.count > 0 {
+            return indexPath
+        } else {
+            return nil
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if reviewsFiltered {
+        if reviewsFiltered && relevantReviews.count > 0 {
             return relevantReviews.count
         } else {
             return 1
@@ -124,11 +151,16 @@ class BeanDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         if reviewsFiltered {
-            let review = relevantReviews[indexPath.row]
-            cell.textLabel?.text = review.object(forKey: "title") as? String
-            let rating = review.object(forKey: "rating") as? Double
-            let roundedRating = rating?.roundTo(places: 2)
-            cell.detailTextLabel?.text = String(describing: roundedRating!)
+            if relevantReviews.count > 0 {
+                let review = relevantReviews[indexPath.row]
+                cell.textLabel?.text = review.object(forKey: "title") as? String
+                let rating = review.object(forKey: "rating") as? Double
+                let roundedRating = rating?.roundTo(places: 2)
+                cell.detailTextLabel?.text = String(describing: roundedRating!)
+            } else {
+                cell.textLabel?.text = "No reviews available"
+                cell.detailTextLabel?.text = ""
+            }
         } else {
             cell.textLabel?.text = "Downloading reviews..."
             cell.detailTextLabel?.text = ""

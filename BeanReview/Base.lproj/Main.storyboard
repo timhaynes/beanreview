@@ -269,6 +269,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="g2s-Jn-zFt" kind="show" identifier="toReviewView" id="q2c-7M-lNh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -306,6 +309,24 @@
                 </activityIndicatorView>
             </objects>
             <point key="canvasLocation" x="3528.75" y="-42.25352112676056"/>
+        </scene>
+        <!--Review View Controller-->
+        <scene sceneID="rDo-3e-B3X">
+            <objects>
+                <viewController id="g2s-Jn-zFt" customClass="ReviewViewController" customModule="BeanReview" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ODl-fu-xzy"/>
+                        <viewControllerLayoutGuide type="bottom" id="Btb-SG-fOP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uJE-8B-I6L">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q8p-tc-VC6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4443" y="-42"/>
         </scene>
         <!--Cafes-->
         <scene sceneID="hL8-Jb-CMt">
