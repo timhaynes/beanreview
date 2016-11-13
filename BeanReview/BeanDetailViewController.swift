@@ -92,6 +92,7 @@ class BeanDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destination = segue.destination as! ReviewViewController
                 destination.review = relevantReviews[indexPath.row]
+                destination.bean = bean
             }
         }
     }

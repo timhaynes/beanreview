@@ -59,7 +59,10 @@ class WriteReviewViewController: UIViewController {
                 print("Error \(error?.localizedDescription)")
             }
             
-            self.reviewSavedAlert()
+            OperationQueue.main.addOperation {
+                self.reviewSavedAlert()
+            }
+            
         })
         
     }

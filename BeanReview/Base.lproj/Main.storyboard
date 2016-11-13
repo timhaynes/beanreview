@@ -321,12 +321,77 @@
                     <view key="view" contentMode="scaleToFill" id="uJE-8B-I6L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="fG1-5V-tuX">
+                                <rect key="frame" x="91.5" y="72" width="137.5" height="80.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rSD-RT-KgS">
+                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="80.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bean name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FtL-ah-8t6">
+                                                <rect key="frame" x="0.0" y="0.0" width="137.5" height="33.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cafe name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGJ-Bi-CKo">
+                                                <rect key="frame" x="0.0" y="33.5" width="137.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wb4-xy-PuZ">
+                                                <rect key="frame" x="0.0" y="54" width="137.5" height="26.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="i6w-nY-y7O">
+                                <rect key="frame" x="16" y="158" width="288" height="390"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIM-5c-C6s">
+                                <rect key="frame" x="16" y="521" width="288" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="8Kj-To-ss1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <state key="normal" title="View cafe"/>
+                                <connections>
+                                    <segue destination="q4K-Na-kGB" kind="show" identifier="reviewToCafe" id="HRV-Qa-aML"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Btb-SG-fOP" firstAttribute="top" secondItem="YIM-5c-C6s" secondAttribute="bottom" constant="8" id="4Dt-qQ-UF1"/>
+                            <constraint firstItem="i6w-nY-y7O" firstAttribute="trailing" secondItem="uJE-8B-I6L" secondAttribute="trailingMargin" id="75K-6a-SKI"/>
+                            <constraint firstItem="fG1-5V-tuX" firstAttribute="top" secondItem="ODl-fu-xzy" secondAttribute="bottom" constant="8" id="Grp-f8-9Y8"/>
+                            <constraint firstItem="Btb-SG-fOP" firstAttribute="top" secondItem="i6w-nY-y7O" secondAttribute="bottom" constant="20" id="KcX-RN-t3O"/>
+                            <constraint firstItem="YIM-5c-C6s" firstAttribute="centerX" secondItem="uJE-8B-I6L" secondAttribute="centerX" id="StF-QK-OBx"/>
+                            <constraint firstItem="i6w-nY-y7O" firstAttribute="top" secondItem="fG1-5V-tuX" secondAttribute="bottom" constant="5" id="Zaf-fX-s2Y"/>
+                            <constraint firstItem="i6w-nY-y7O" firstAttribute="leading" secondItem="uJE-8B-I6L" secondAttribute="leadingMargin" id="qBJ-hC-Lxr"/>
+                            <constraint firstItem="fG1-5V-tuX" firstAttribute="centerX" secondItem="uJE-8B-I6L" secondAttribute="centerX" id="t4t-V4-GnV"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="beanName" destination="FtL-ah-8t6" id="Sc6-67-s77"/>
+                        <outlet property="cafeButton" destination="YIM-5c-C6s" id="KNC-ZJ-WKm"/>
+                        <outlet property="cafeName" destination="lGJ-Bi-CKo" id="yEm-hW-ldl"/>
+                        <outlet property="reviewBody" destination="i6w-nY-y7O" id="8w8-qB-cAv"/>
+                        <outlet property="reviewTitle" destination="wb4-xy-PuZ" id="DqL-FF-tMY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q8p-tc-VC6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4443" y="-42"/>
+            <point key="canvasLocation" x="4441.875" y="-42.25352112676056"/>
         </scene>
         <!--Cafes-->
         <scene sceneID="hL8-Jb-CMt">
@@ -556,7 +621,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeB-NK-I39" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3652" y="966.56671664167925"/>
+            <point key="canvasLocation" x="4228" y="967"/>
         </scene>
         <!--Cafe Map View Controller-->
         <scene sceneID="X7p-ZV-1n4">
@@ -594,7 +659,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dl-93-SHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4464.8000000000002" y="966.56671664167925"/>
+            <point key="canvasLocation" x="5355" y="967"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6be-SR-sZq">
@@ -941,4 +1006,7 @@
             <point key="canvasLocation" x="1892" y="-42"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="HRV-Qa-aML"/>
+    </inferredMetricsTieBreakers>
 </document>
