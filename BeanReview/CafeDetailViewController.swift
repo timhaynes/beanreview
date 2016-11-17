@@ -26,9 +26,8 @@ class CafeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     var reviewsDownloaded: Bool = false
     
     var reviewBeanNameDic: [CKRecord:String] = [:]
-    var reviewBeanRecordIDDic: [CKRecord:CKRecordID] = [:]
-    var beanRecordIDReviewRecord: [CKRecordID:CKRecord] = [:]
-    
+    var beanRecordIDReviewRecord = [(CKRecordID,CKRecord)]()
+    var reviewRecordBeanRef: [CKRecord:CKReference] = [:]
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var tableView: UITableView!
@@ -87,60 +86,59 @@ class CafeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         var beanRecords = [CKRecordID]()
         
-        
         for review in reviews {
-            let beanRef = review.object(forKey: "bean") as! CKReference
+            let beanRef =  reviewRecordBeanRef[review]!
             let beanRecord = beanRef.recordID
             beanRecords.append(beanRecord)
-            beanRecordIDReviewRecord[beanRecord] = review
-            reviewBeanRecordIDDic[review] = beanRecord
+            beanRecordIDReviewRecord.append(beanRecord, review)
         }
         
-        for beanRecord in beanRecords {
-            let operation = CKFetchRecordsOperation(recordIDs: [beanRecord])
-            operation.queuePriority = .veryHigh
+        let operation = CKFetchRecordsOperation(recordIDs: beanRecords)
+        operation.queuePriority = .veryHigh
             
-            operation.fetchRecordsCompletionBlock = { records, error in
-                if let error = error {
-                    print("Error: \(error.localizedDescription)")
-                }
-                
-                let bean = records?[beanRecord]
-                let review = self.beanRecordIDReviewRecord[(bean?.recordID)!]
-                self.reviewBeanNameDic[review!] = bean?.object(forKey: "name") as? String
-                print(" getBeanNames ---- reviewBeanNameDic = \(review!)")
-                print(" getBeanNames ----- \(bean?.object(forKey: "name") as? String)")
-                print(" ZZZZZ - \(self.reviewBeanNameDic)")
-                OperationQueue.main.addOperation {
-                    self.tableView.reloadData()
-                }
-                
-                
+        operation.fetchRecordsCompletionBlock = { records, error in
+            
+            if error != nil {
+                print("Error: \(error!.localizedDescription)")
+                return
             }
-            publicDatabase.add(operation)
+            
+            for record in records! {
+                for pair in self.beanRecordIDReviewRecord {
+                    let review = pair.1
+                    if record.key == pair.0 {
+                        let bean = record.value
+                        self.reviewBeanNameDic[review] = bean.object(forKey: "name") as? String
+                    }
+                }
+            }
+            
+            OperationQueue.main.addOperation {
+                self.reviewsDownloaded = true
+                self.tableView.reloadData()
+            }
+            
         }
-        
+        publicDatabase.add(operation)
     }
     
 
     func downloadReviews(completionHander: @escaping ([CKRecord]) -> Void) {
     
-        print("download reviews start")
         let cloudContainer = CKContainer.default()
         let publicDatabase = cloudContainer.publicCloudDatabase
         
         let reference = CKReference(recordID: cafeRecord, action: .none)
         let predicate = NSPredicate(format: "cafe == %@", reference)
         let query = CKQuery(recordType: "Review", predicate: predicate)
-        // TODO sort by date
+        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         
         let queryOperation = CKQueryOperation(query: query)
         queryOperation.queuePriority = .veryHigh
         queryOperation.resultsLimit = 100
         queryOperation.recordFetchedBlock = { (record) -> Void in
-            print(" appending - \(record.object(forKey: "title") as? String)")
             self.reviews.append(record)
-            
+            self.reviewRecordBeanRef[record] = record.object(forKey: "bean") as? CKReference
         }
    
         queryOperation.queryCompletionBlock = { (cursor, error) -> Void in
@@ -149,7 +147,6 @@ class CafeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 return
             }
             print("CafeDetailViewController - iCloud download successful")
-            self.reviewsDownloaded = true
             completionHander(self.reviews)
         }
     
@@ -165,6 +162,7 @@ class CafeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         let operation = CKFetchRecordsOperation(recordIDs: [cafeRecord])
         operation.queuePriority = .veryHigh
         operation.fetchRecordsCompletionBlock = { records, error in
+            
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             }
@@ -172,8 +170,6 @@ class CafeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             self.cafe = records?[self.cafeRecord]
             print("CafeDetailViewController  -  Successful download of record")
             self.setMap(cafe: self.cafe!)
-            print("download record finished")
-            
         }
         publicDatabase.add(operation)
     }
