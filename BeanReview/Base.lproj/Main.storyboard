@@ -606,22 +606,61 @@
                                     <constraint firstAttribute="height" constant="160" id="DJM-P6-Vte"/>
                                 </constraints>
                             </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zo1-89-hDF">
+                                <rect key="frame" x="0.0" y="224" width="320" height="344"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="qkY-UT-Yjm" detailTextLabel="OrI-4g-44w" style="IBUITableViewCellStyleValue1" id="Zm2-Ur-Y0g">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zm2-Ur-Y0g" id="z67-rs-7A2">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qkY-UT-Yjm">
+                                                    <rect key="frame" x="15" y="11" width="34" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OrI-4g-44w">
+                                                    <rect key="frame" x="261" y="11" width="44" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="q4K-Na-kGB" id="kCi-aJ-0NV"/>
+                                    <outlet property="delegate" destination="q4K-Na-kGB" id="h2o-HR-ZqH"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="1LS-6F-Cks" firstAttribute="top" secondItem="zo1-89-hDF" secondAttribute="bottom" id="MhV-En-RkM"/>
                             <constraint firstAttribute="trailing" secondItem="I5p-rj-WQ4" secondAttribute="trailing" id="aE4-wR-pAY"/>
+                            <constraint firstAttribute="trailing" secondItem="zo1-89-hDF" secondAttribute="trailing" id="bh6-ld-nfn"/>
+                            <constraint firstItem="zo1-89-hDF" firstAttribute="top" secondItem="I5p-rj-WQ4" secondAttribute="bottom" id="cbo-LI-Hwa"/>
                             <constraint firstItem="I5p-rj-WQ4" firstAttribute="leading" secondItem="xkw-4s-iZk" secondAttribute="leading" id="qbA-2S-GGt"/>
                             <constraint firstItem="I5p-rj-WQ4" firstAttribute="top" secondItem="qqM-9b-dMZ" secondAttribute="bottom" id="vuW-ST-sQX"/>
+                            <constraint firstItem="zo1-89-hDF" firstAttribute="leading" secondItem="xkw-4s-iZk" secondAttribute="leading" id="xht-DE-tU3"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="I5p-rj-WQ4" id="of1-B2-6Gh"/>
+                        <outlet property="tableView" destination="zo1-89-hDF" id="MNz-tI-kcW"/>
                         <segue destination="zmf-EJ-yQi" kind="show" identifier="showMap" id="ewJ-ci-vR8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeB-NK-I39" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4228" y="967"/>
+            <point key="canvasLocation" x="4226.25" y="966.54929577464793"/>
         </scene>
         <!--Cafe Map View Controller-->
         <scene sceneID="X7p-ZV-1n4">
@@ -636,21 +675,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1bm-ox-0b9">
-                                <rect key="frame" x="0.0" y="64" width="375" height="460"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="xky-uN-Mfm"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="64" width="375" height="504"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1bm-ox-0b9" firstAttribute="top" secondItem="8aF-fl-te0" secondAttribute="bottom" id="9i5-fh-iTM"/>
-                            <constraint firstItem="aa4-WA-hSq" firstAttribute="top" secondItem="1bm-ox-0b9" secondAttribute="bottom" id="D8F-FL-195"/>
-                            <constraint firstItem="1bm-ox-0b9" firstAttribute="leading" secondItem="z1w-FG-90X" secondAttribute="leading" id="JDp-CF-W1M"/>
-                            <constraint firstItem="1bm-ox-0b9" firstAttribute="bottom" secondItem="aa4-WA-hSq" secondAttribute="top" id="QSM-db-Wc0"/>
-                            <constraint firstItem="1bm-ox-0b9" firstAttribute="top" secondItem="8aF-fl-te0" secondAttribute="bottom" id="ZNX-9f-aTC"/>
-                            <constraint firstAttribute="trailing" secondItem="1bm-ox-0b9" secondAttribute="trailing" id="aGJ-6T-cjY"/>
-                            <constraint firstItem="1bm-ox-0b9" firstAttribute="leading" secondItem="z1w-FG-90X" secondAttribute="leading" id="c7L-XX-Avn"/>
+                            <constraint firstItem="aa4-WA-hSq" firstAttribute="top" secondItem="1bm-ox-0b9" secondAttribute="bottom" id="7qr-Zk-rMg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1bm-ox-0b9" secondAttribute="trailing" constant="-71" id="P5B-ZI-NGZ"/>
+                            <constraint firstItem="1bm-ox-0b9" firstAttribute="leading" secondItem="z1w-FG-90X" secondAttribute="leadingMargin" constant="-16" id="Vco-uA-brm"/>
+                            <constraint firstItem="1bm-ox-0b9" firstAttribute="top" secondItem="8aF-fl-te0" secondAttribute="bottom" id="fIN-xX-kTH"/>
                         </constraints>
                     </view>
                     <connections>
@@ -873,6 +906,9 @@
                                         <rect key="frame" x="88" y="12.5" width="144" height="39"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <state key="normal" title="Cafe not here?"/>
+                                        <connections>
+                                            <segue destination="OsP-gZ-rtP" kind="show" identifier="selectCafeReviewToNewCafe" id="Am9-pX-1jx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1007,6 +1043,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Am9-pX-1jx"/>
         <segue reference="HRV-Qa-aML"/>
     </inferredMetricsTieBreakers>
 </document>

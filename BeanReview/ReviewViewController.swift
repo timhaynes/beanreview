@@ -25,7 +25,8 @@ class ReviewViewController: UIViewController {
         super.viewDidLoad()
         
         cafeButton.setTitle("", for: .normal)
-        cafeName.text = ""
+        
+        cafeName.isHidden = true
         
         getCafeTitle()
         self.title = "Review"
@@ -64,6 +65,7 @@ class ReviewViewController: UIViewController {
                 self.cafe = record
                 OperationQueue.main.addOperation {
                     self.cafeName.text = record!.object(forKey: "name") as? String
+                    self.cafeName.isHidden = false
                     let buttonTitle = "View " + "\((record!.object(forKey: "name") as? String)!)"
                     self.cafeButton.setTitle(buttonTitle, for: .normal)
                 }
