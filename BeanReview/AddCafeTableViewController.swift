@@ -40,6 +40,7 @@ class AddCafeTableViewController: UITableViewController {
                     print("Cafe record saved to iCloud")
                     self.dismiss(animated: true, completion: nil)
                     // TODO - send to actual detail view of newly created cafe
+                    // TODO - or when returning, reload cafes so new one is shown
                 }
             })
         }

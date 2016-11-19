@@ -6,10 +6,8 @@
 //  Copyright © 2016 Agon Consulting. All rights reserved.
 //
 
-/* TODO 
-   1. fix cells - should show bean name and rating  -- get beanName to work
+/* TODO
    2. build logic for showing cafes that don't have any reviews
-   3. sort reviews by date created (newest at top)
 */
 
 import UIKit
@@ -28,6 +26,7 @@ class CafeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     var reviewBeanNameDic: [CKRecord:String] = [:]
     var beanRecordIDReviewRecord = [(CKRecordID,CKRecord)]()
     var reviewRecordBeanRef: [CKRecord:CKReference] = [:]
+    var reviewRecordBeanRecord: [CKRecord:CKRecord] = [:]
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var tableView: UITableView!
@@ -66,8 +65,11 @@ class CafeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         if reviewsDownloaded {
             let review = reviews[indexPath.row]
             cell.textLabel?.text = reviewBeanNameDic[review]
+            let rating = (review.object(forKey: "rating") as? Int64)!
+            cell.detailTextLabel?.text = String(describing: rating)
         } else {
             cell.textLabel?.text = "Reviews downloading"
+            cell.detailTextLabel?.text = ""
         }
         
         return cell
@@ -104,7 +106,9 @@ class CafeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             
             for record in records! {
+                
                 for pair in self.beanRecordIDReviewRecord {
+                    self.reviewRecordBeanRecord[pair.1] = record.value
                     let review = pair.1
                     if record.key == pair.0 {
                         let bean = record.value
@@ -212,6 +216,12 @@ class CafeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             let destinationController = segue.destination as! CafeMapViewController
             destinationController.cafe = cafe
             destinationController.cafePlacemark = cafePlacemark
+        } else if segue.identifier == "toReviewFromCafe" {
+            let destinationController = segue.destination as! ReviewViewController
+            let indexPath = tableView.indexPathForSelectedRow
+            destinationController.review = reviews[indexPath!.row]
+            destinationController.cafe = cafe
+            destinationController.bean = reviewRecordBeanRecord[reviews[indexPath!.row]]
         }
     }
     

@@ -308,7 +308,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </objects>
-            <point key="canvasLocation" x="3528.75" y="-42.25352112676056"/>
+            <point key="canvasLocation" x="3536" y="7"/>
         </scene>
         <!--Review View Controller-->
         <scene sceneID="rDo-3e-B3X">
@@ -391,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q8p-tc-VC6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4441.875" y="-42.25352112676056"/>
+            <point key="canvasLocation" x="4577" y="53"/>
         </scene>
         <!--Cafes-->
         <scene sceneID="hL8-Jb-CMt">
@@ -633,6 +633,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="g2s-Jn-zFt" kind="show" identifier="toReviewFromCafe" id="xSC-vf-8VI"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -660,7 +663,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeB-NK-I39" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4226.25" y="966.54929577464793"/>
+            <point key="canvasLocation" x="3868" y="967"/>
         </scene>
         <!--Cafe Map View Controller-->
         <scene sceneID="X7p-ZV-1n4">
@@ -1044,6 +1047,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Am9-pX-1jx"/>
+        <segue reference="xSC-vf-8VI"/>
         <segue reference="HRV-Qa-aML"/>
     </inferredMetricsTieBreakers>
 </document>
