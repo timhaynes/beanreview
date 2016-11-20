@@ -175,7 +175,7 @@
         <!--Add bean-->
         <scene sceneID="pDJ-9s-P4a">
             <objects>
-                <viewController title="Add bean" id="INc-sz-XnI" customClass="AddBeanViewController" customModule="BeanReview" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add bean" automaticallyAdjustsScrollViewInsets="NO" id="INc-sz-XnI" customClass="AddBeanViewController" customModule="BeanReview" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w2l-Hp-y0n"/>
                         <viewControllerLayoutGuide type="bottom" id="v2i-xX-kua"/>
@@ -198,6 +198,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="INc-sz-XnI" id="GKR-2z-YTI"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -235,18 +238,42 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ukE-eG-WxP">
+                                <rect key="frame" x="40" y="234" width="240" height="270"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="MSh-kR-KWK"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="zFY-78-OJ9">
+                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zFY-78-OJ9" id="VbR-yJ-6ON">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="INc-sz-XnI" id="gGz-GY-Vay"/>
+                                    <outlet property="delegate" destination="INc-sz-XnI" id="Qar-ha-QON"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Zcw-g7-QOT" firstAttribute="top" secondItem="Kbr-GR-qsA" secondAttribute="bottom" constant="10" id="5v4-Ph-BJn"/>
+                            <constraint firstItem="ukE-eG-WxP" firstAttribute="top" secondItem="qv0-ED-xAb" secondAttribute="bottom" constant="50" id="9Pt-6a-zBu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Zcw-g7-QOT" secondAttribute="trailing" constant="5" id="A2s-kG-wTx"/>
                             <constraint firstItem="Zcw-g7-QOT" firstAttribute="leading" secondItem="YO8-yi-ixv" secondAttribute="leadingMargin" constant="5" id="DBC-iN-1f4"/>
+                            <constraint firstItem="ukE-eG-WxP" firstAttribute="centerX" secondItem="YO8-yi-ixv" secondAttribute="centerX" id="Jdq-29-cdj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qv0-ED-xAb" secondAttribute="trailing" constant="5" id="KfV-B9-uMI"/>
                             <constraint firstItem="qv0-ED-xAb" firstAttribute="top" secondItem="Zcw-g7-QOT" secondAttribute="bottom" constant="10" id="Lb5-zI-nE1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Kbr-GR-qsA" secondAttribute="trailing" constant="5" id="SRs-ee-pZW"/>
                             <constraint firstItem="Kbr-GR-qsA" firstAttribute="top" secondItem="w2l-Hp-y0n" secondAttribute="bottom" constant="10" id="T4F-mJ-S53"/>
                             <constraint firstItem="qv0-ED-xAb" firstAttribute="leading" secondItem="YO8-yi-ixv" secondAttribute="leadingMargin" constant="5" id="YCh-6D-EIQ"/>
                             <constraint firstItem="Kbr-GR-qsA" firstAttribute="leading" secondItem="YO8-yi-ixv" secondAttribute="leadingMargin" constant="5" id="mMK-H9-aW3"/>
+                            <constraint firstItem="v2i-xX-kua" firstAttribute="top" secondItem="ukE-eG-WxP" secondAttribute="bottom" constant="20" id="v8U-Zi-vBT"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -255,6 +282,7 @@
                         <outlet property="countryTextField" destination="k61-R8-Wgn" id="RlP-xo-IaD"/>
                         <outlet property="nameTextField" destination="b8N-V3-fSs" id="svL-Rd-rkl"/>
                         <outlet property="producerTextField" destination="Eqo-kB-Ayk" id="JB8-xM-yhq"/>
+                        <outlet property="tableView" destination="ukE-eG-WxP" id="3Tm-m9-tJ7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Myr-9w-lbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
