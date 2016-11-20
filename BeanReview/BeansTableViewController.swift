@@ -33,6 +33,11 @@ class BeansTableViewController: UITableViewController {
         
         tableView.tableHeaderView = searchController.searchBar
         fetchBeans()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.backgroundColor = UIColor.white
+        refreshControl?.tintColor = UIColor.gray
+        refreshControl?.addTarget(self, action: #selector(fetchBeans), for: UIControlEvents.valueChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,6 +95,9 @@ class BeansTableViewController: UITableViewController {
     }
     
     func fetchBeans() {
+        beanRecords.removeAll()
+        tableView.reloadData()
+        
         let cloudContainer = CKContainer.default()
         let publicDatabase = cloudContainer.publicCloudDatabase
         let predicate = NSPredicate(value: true)
@@ -124,6 +132,11 @@ class BeansTableViewController: UITableViewController {
                 self.downloaded = true
                 self.spinner.stopAnimating()
                 self.tableView.reloadData()
+                if let refreshControl = self.refreshControl {
+                    if refreshControl.isRefreshing {
+                        refreshControl.endRefreshing()
+                    }
+                }
             }
         }
         
